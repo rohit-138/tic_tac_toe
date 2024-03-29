@@ -21,6 +21,34 @@
       place-items: center;
       font-family: "Tilt Warp", cursive;
     }
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&family=Calligraffitti&display=swap');
+
+body {
+  background: #6868AC;
+}
+
+.divi {
+
+  font-family: 'Calligraffitti', cursive;
+  font-weight: 700;
+  font-size: 4rem;
+  margin-top: 3rem;
+  margin-left: 20rem;
+  /* position: absolute; */
+  text-shadow: -15px 5px 20px #ced0d3;
+  /* top: 50%; */
+  /* left: 50%; */
+  transform: translate(-50%,-50%);
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #F9f1cc;
+  text-shadow: 5px 5px 0px #FFB650, 
+    10px 10px 0px #FFD662, 
+    15px 15px 0px  #FF80BF, 
+    20px 20px 0px #EF5097, 
+    25px 25px 0px #6868AC, 
+    30px 30px 0px #90B1E0;
+}
     h1 {
       margin: 50px 0 50px 0;
       font-size: 5rem;
@@ -87,7 +115,9 @@
   </style>
 
   <body>
-    <h1>Tic-Tac-Toe</h1>
+    <div class="divi">Tic-Tac-Toe</div>
+    <!-- <h1>Tic-Tac-Toe</h1> -->
+    <!-- <img id="loading" src="TICTACTOEIMAGE.jpg" alt="" width="800" height="800" /> -->
 
     <div style="display: flex; width: 95vw; position: relative">
       <p id="userCont">You : <span id="user"></span></p>
@@ -180,6 +210,11 @@
 
       document.getElementById("oppName").innerText = oppName;
       document.getElementById("value").innerText = value;
+      if( value==="O"){
+        document.querySelectorAll(".btn").forEach((e) => {
+            e.disabled = true;
+          });
+      }
     });
 
     document.querySelectorAll(".btn").forEach((e) => {
@@ -198,6 +233,7 @@
       p1id = foundObject.p1.p1move;
       p2id = foundObject.p2.p2move;
       let currentPlayer = document.getElementById("value").innerText;
+      
       if (foundObject.sum % 2 == 0) {
         document.getElementById("whosTurn").innerText = "O's Turn";
         if (currentPlayer === "O") {
